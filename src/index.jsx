@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import './style.css';
+import Hospital from './components/Hospital';
 
-ReactDom.render(<h1 className="header">ww</h1>, document.getElementById('root'));
+ReactDom.render(<Hospital />, document.getElementById('root'));
