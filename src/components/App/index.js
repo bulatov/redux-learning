@@ -1,7 +1,7 @@
 import React from 'react';
 import PatientTable from '../PatientTable';
 
-export default class Hospital extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
 
