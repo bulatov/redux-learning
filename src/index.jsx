@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import Hospital from './components/Hospital';
+import App from './components/App';
 
-ReactDom.render(<Hospital />, document.getElementById('root'));
+ReactDom.render(<App />, document.getElementById('root'));
