@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import PatientRow from './PatientRow';
 
-export default class PatientTable extends React.Component {
+export default class PatientTable extends Component {
+
+  get captions() {
+      return [
+        'Name', 'Surname', 'Age', 'Gender', 'Disease', 'Treatment', 'Status'
+      ];
+  }
 
   render() {
-    const $headers = this.props.captions.map((key) => { return <th key={key}>{key}</th>; });
-    const $rows = [];
-    for (let i = 0; i < this.props.patients.length; i++) {
-      const patient = this.props.patients[i];
-      $rows.push(<PatientRow contentType={this.props.contentType} patient={patient} key={patient.firstName + patient.secondName} />);
-    }
+    const $headers = this.captions.map(key => <th key={key}>{key}</th>);
+    const $rows = this.props.patients.map(patient => <PatientRow patient={patient} key={patient.id} />);
 
     return (
       <table>
@@ -28,7 +30,5 @@ export default class PatientTable extends React.Component {
 }
 
 PatientTable.propTypes = {
-  contentType: PropTypes.object,
-  captions: PropTypes.array,
-  patients: PropTypes.array
+  patients: PropTypes.array.isRequired
 };

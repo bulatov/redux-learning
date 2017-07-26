@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class StatusDropDown extends React.Component {
+export default class StatusDropdown extends Component {
 
   constructor(props) {
     super(props);
@@ -30,6 +30,6 @@ export default class StatusDropDown extends React.Component {
 }
 
 
-StatusDropDown.propTypes = {
+StatusDropdown.propTypes = {
   defaultValue: PropTypes.string
 };
