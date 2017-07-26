@@ -3,23 +3,13 @@ import PropTypes from 'prop-types';
 
 export default class StatusDropdown extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      value: this.props.defaultValue
-    };
-  }
-
   handleChange(event) {
-    this.setState({
-      value: event.target.value
-    });
+    this.props.onChange(event.target.value, this.props.id);
  }
 
   render() {
     return (
-      <select value={this.state.value} onChange={this.handleChange.bind(this)}>
+      <select defaultValue={this.props.defaultValue} onChange={this.handleChange.bind(this)}>
         <option value="admit">Admit</option>
         <option value="operation">Operation</option>
         <option value="recovery">Recovery</option>
@@ -31,5 +21,7 @@ export default class StatusDropdown extends Component {
 
 
 StatusDropdown.propTypes = {
+  onChange: PropTypes.func,
+  id: PropTypes.number,
   defaultValue: PropTypes.string
 };

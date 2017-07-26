@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TreatmentInputContainer from '../../../containers/TreatmentInputContainer';
-import StatusDropDown from '../../StatusDropDown';
+import StatusDropDownContainer from '../../../containers/StatusDropDownContainer';
 
 export default class PatientRow extends Component {
 
@@ -24,7 +24,7 @@ export default class PatientRow extends Component {
       case 'input':
         return <TreatmentInputContainer id={patient.id} defaultValue={patient[key]} />;
       case 'dropdown':
-        return <StatusDropDown defaultValue={patient[key]} />;
+        return <StatusDropDownContainer id={patient.id} defaultValue={patient[key]} />;
       default:
         return null;
     }

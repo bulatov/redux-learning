@@ -24804,7 +24804,7 @@ var patient = function patient() {
     return state;
   }
 
-  var key = _actions.CHANGE_TREATMENT ? 'treatment' : 'status';
+  var key = action.type === _actions.CHANGE_TREATMENT ? 'treatment' : 'status';
   return Object.assign({}, state, _defineProperty({}, key, action.text));
 };
 
@@ -25021,9 +25021,9 @@ var _TreatmentInputContainer = __webpack_require__(232);
 
 var _TreatmentInputContainer2 = _interopRequireDefault(_TreatmentInputContainer);
 
-var _StatusDropDown = __webpack_require__(234);
+var _StatusDropDownContainer = __webpack_require__(235);
 
-var _StatusDropDown2 = _interopRequireDefault(_StatusDropDown);
+var _StatusDropDownContainer2 = _interopRequireDefault(_StatusDropDownContainer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25051,7 +25051,7 @@ var PatientRow = function (_Component) {
         case 'input':
           return _react2.default.createElement(_TreatmentInputContainer2.default, { id: patient.id, defaultValue: patient[key] });
         case 'dropdown':
-          return _react2.default.createElement(_StatusDropDown2.default, { defaultValue: patient[key] });
+          return _react2.default.createElement(_StatusDropDownContainer2.default, { id: patient.id, defaultValue: patient[key] });
         default:
           return null;
       }
@@ -25205,7 +25205,41 @@ TreatmentInput.propTypes = {
 };
 
 /***/ }),
-/* 234 */
+/* 234 */,
+/* 235 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _reactRedux = __webpack_require__(54);
+
+var _StatusDropdown = __webpack_require__(236);
+
+var _StatusDropdown2 = _interopRequireDefault(_StatusDropdown);
+
+var _actions = __webpack_require__(97);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    onChange: function onChange(text, id) {
+      return dispatch((0, _actions.changeStatus)(text, id));
+    }
+  };
+};
+
+var StatusDropdownContainer = (0, _reactRedux.connect)(undefined, mapDispatchToProps)(_StatusDropdown2.default);
+
+exports.default = StatusDropdownContainer;
+
+/***/ }),
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25236,30 +25270,23 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var StatusDropdown = function (_Component) {
   _inherits(StatusDropdown, _Component);
 
-  function StatusDropdown(props) {
+  function StatusDropdown() {
     _classCallCheck(this, StatusDropdown);
 
-    var _this = _possibleConstructorReturn(this, (StatusDropdown.__proto__ || Object.getPrototypeOf(StatusDropdown)).call(this, props));
-
-    _this.state = {
-      value: _this.props.defaultValue
-    };
-    return _this;
+    return _possibleConstructorReturn(this, (StatusDropdown.__proto__ || Object.getPrototypeOf(StatusDropdown)).apply(this, arguments));
   }
 
   _createClass(StatusDropdown, [{
     key: 'handleChange',
     value: function handleChange(event) {
-      this.setState({
-        value: event.target.value
-      });
+      this.props.onChange(event.target.value, this.props.id);
     }
   }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
         'select',
-        { value: this.state.value, onChange: this.handleChange.bind(this) },
+        { defaultValue: this.props.defaultValue, onChange: this.handleChange.bind(this) },
         _react2.default.createElement(
           'option',
           { value: 'admit' },
@@ -25291,6 +25318,8 @@ exports.default = StatusDropdown;
 
 
 StatusDropdown.propTypes = {
+  onChange: _propTypes2.default.func,
+  id: _propTypes2.default.number,
   defaultValue: _propTypes2.default.string
 };
 

@@ -5,7 +5,7 @@ const patient = (state = {}, action) => {
     return state;
   }
 
-  const key = (CHANGE_TREATMENT ? 'treatment' : 'status');
+  const key = (action.type === CHANGE_TREATMENT ? 'treatment' : 'status');
   return Object.assign({}, state, {
     [key]: action.text
   });
