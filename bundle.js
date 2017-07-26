@@ -25044,16 +25044,14 @@ var PatientRow = function (_Component) {
 
   _createClass(PatientRow, [{
     key: 'createCellContent',
-    value: function createCellContent(key, patient) {
-      switch (this.contentType[key]) {
-        case 'value':
-          return patient[key];
-        case 'input':
-          return _react2.default.createElement(_PatientTreatmentContainer2.default, { id: patient.id, defaultValue: patient[key] });
-        case 'dropdown':
-          return _react2.default.createElement(_PatientStatusContainer2.default, { id: patient.id, defaultValue: patient[key] });
+    value: function createCellContent(field, patient) {
+      switch (field) {
+        case 'treatment':
+          return _react2.default.createElement(_PatientTreatmentContainer2.default, { id: patient.id, defaultValue: patient[field] });
+        case 'status':
+          return _react2.default.createElement(_PatientStatusContainer2.default, { id: patient.id, defaultValue: patient[field] });
         default:
-          return null;
+          return patient[field];
       }
     }
   }, {
@@ -25061,12 +25059,11 @@ var PatientRow = function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      var keys = Object.keys(this.contentType);
-      var $rowCells = keys.map(function (key) {
+      var $rowCells = this.fields.map(function (field) {
         return _react2.default.createElement(
           'td',
-          { key: key },
-          _this2.createCellContent(key, _this2.props.patient)
+          { key: field },
+          _this2.createCellContent(field, _this2.props.patient)
         );
       });
 
@@ -25077,17 +25074,9 @@ var PatientRow = function (_Component) {
       );
     }
   }, {
-    key: 'contentType',
+    key: 'fields',
     get: function get() {
-      return {
-        firstName: 'value',
-        secondName: 'value',
-        age: 'value',
-        gender: 'value',
-        disease: 'value',
-        treatment: 'input',
-        status: 'dropdown'
-      };
+      return ['firstName', 'secondName', 'age', 'gender', 'disease', 'treatment', 'status'];
     }
   }]);
 
