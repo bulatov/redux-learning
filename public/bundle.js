@@ -25047,9 +25047,9 @@ var PatientRow = function (_Component) {
     value: function createCellContent(field, patient) {
       switch (field) {
         case 'treatment':
-          return _react2.default.createElement(_PatientTreatmentContainer2.default, { id: patient.id, defaultValue: patient[field] });
+          return _react2.default.createElement(_PatientTreatmentContainer2.default, { id: patient.id, value: patient[field] });
         case 'status':
-          return _react2.default.createElement(_PatientStatusContainer2.default, { id: patient.id, defaultValue: patient[field] });
+          return _react2.default.createElement(_PatientStatusContainer2.default, { id: patient.id, value: patient[field] });
         default:
           return patient[field];
       }
@@ -25177,7 +25177,7 @@ var TreatmentInput = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('input', { type: 'text', defaultValue: this.props.defaultValue, onChange: this.handleChange.bind(this) });
+      return _react2.default.createElement('input', { type: 'text', value: this.props.value, onChange: this.handleChange.bind(this) });
     }
   }]);
 
@@ -25190,7 +25190,7 @@ exports.default = TreatmentInput;
 TreatmentInput.propTypes = {
   onChange: _propTypes2.default.func,
   id: _propTypes2.default.number,
-  defaultValue: _propTypes2.default.string
+  value: _propTypes2.default.string
 };
 
 /***/ }),
@@ -25274,7 +25274,7 @@ var StatusDropdown = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'select',
-        { defaultValue: this.props.defaultValue, onChange: this.handleChange.bind(this) },
+        { value: this.props.value, onChange: this.handleChange.bind(this) },
         _react2.default.createElement(
           'option',
           { value: 'admit' },
@@ -25308,7 +25308,7 @@ exports.default = StatusDropdown;
 StatusDropdown.propTypes = {
   onChange: _propTypes2.default.func,
   id: _propTypes2.default.number,
-  defaultValue: _propTypes2.default.string
+  value: _propTypes2.default.string
 };
 
 /***/ })

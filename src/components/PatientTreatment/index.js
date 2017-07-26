@@ -9,7 +9,7 @@ export default class TreatmentInput extends Component {
 
   render() {
     return (
-      <input type="text" defaultValue={this.props.defaultValue} onChange={this.handleChange.bind(this)} />
+      <input type="text" value={this.props.value} onChange={this.handleChange.bind(this)} />
     );
   }
 }
@@ -17,5 +17,5 @@ export default class TreatmentInput extends Component {
 TreatmentInput.propTypes = {
   onChange: PropTypes.func,
   id: PropTypes.number,
-  defaultValue: PropTypes.string
+  value: PropTypes.string
 };

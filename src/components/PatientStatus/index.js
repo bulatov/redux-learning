@@ -9,7 +9,7 @@ export default class StatusDropdown extends Component {
 
   render() {
     return (
-      <select defaultValue={this.props.defaultValue} onChange={this.handleChange.bind(this)}>
+      <select value={this.props.value} onChange={this.handleChange.bind(this)}>
         <option value="admit">Admit</option>
         <option value="operation">Operation</option>
         <option value="recovery">Recovery</option>
@@ -23,5 +23,5 @@ export default class StatusDropdown extends Component {
 StatusDropdown.propTypes = {
   onChange: PropTypes.func,
   id: PropTypes.number,
-  defaultValue: PropTypes.string
+  value: PropTypes.string
 };

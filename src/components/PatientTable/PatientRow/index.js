@@ -12,9 +12,9 @@ export default class PatientRow extends Component {
   createCellContent(field, patient) {
     switch (field) {
       case 'treatment':
-        return <PatientTreatmentContainer id={patient.id} defaultValue={patient[field]} />;
+        return <PatientTreatmentContainer id={patient.id} value={patient[field]} />;
       case 'status':
-        return <PatientStatusContainer id={patient.id} defaultValue={patient[field]} />;
+        return <PatientStatusContainer id={patient.id} value={patient[field]} />;
       default:
         return patient[field];
     }
