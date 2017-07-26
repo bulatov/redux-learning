@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import StatusDropdown from '../components/StatusDropdown';
+import PatientStatus from '../components/PatientStatus';
 import { changeStatus } from '../actions';
 
 const mapDispatchToProps = (dispatch) => {
@@ -11,6 +11,6 @@ const mapDispatchToProps = (dispatch) => {
 const StatusDropdownContainer = connect(
   undefined,
   mapDispatchToProps
-)(StatusDropdown);
+)(PatientStatus);
 
 export default StatusDropdownContainer;

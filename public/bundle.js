@@ -24842,7 +24842,7 @@ var _react = __webpack_require__(13);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _PatientTableContainer = __webpack_require__(236);
+var _PatientTableContainer = __webpack_require__(229);
 
 var _PatientTableContainer2 = _interopRequireDefault(_PatientTableContainer);
 
@@ -24876,7 +24876,35 @@ var App = function (_Component) {
 exports.default = App;
 
 /***/ }),
-/* 229 */,
+/* 229 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _reactRedux = __webpack_require__(34);
+
+var _PatientTable = __webpack_require__(230);
+
+var _PatientTable2 = _interopRequireDefault(_PatientTable);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    patients: state.patients
+  };
+};
+
+var ShowPatientTable = (0, _reactRedux.connect)(mapStateToProps)(_PatientTable2.default);
+
+exports.default = ShowPatientTable;
+
+/***/ }),
 /* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24989,13 +25017,13 @@ var _propTypes = __webpack_require__(21);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _TreatmentInputContainer = __webpack_require__(232);
+var _PatientTreatmentContainer = __webpack_require__(232);
 
-var _TreatmentInputContainer2 = _interopRequireDefault(_TreatmentInputContainer);
+var _PatientTreatmentContainer2 = _interopRequireDefault(_PatientTreatmentContainer);
 
-var _StatusDropDownContainer = __webpack_require__(234);
+var _PatientStatusContainer = __webpack_require__(234);
 
-var _StatusDropDownContainer2 = _interopRequireDefault(_StatusDropDownContainer);
+var _PatientStatusContainer2 = _interopRequireDefault(_PatientStatusContainer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25021,9 +25049,9 @@ var PatientRow = function (_Component) {
         case 'value':
           return patient[key];
         case 'input':
-          return _react2.default.createElement(_TreatmentInputContainer2.default, { id: patient.id, defaultValue: patient[key] });
+          return _react2.default.createElement(_PatientTreatmentContainer2.default, { id: patient.id, defaultValue: patient[key] });
         case 'dropdown':
-          return _react2.default.createElement(_StatusDropDownContainer2.default, { id: patient.id, defaultValue: patient[key] });
+          return _react2.default.createElement(_PatientStatusContainer2.default, { id: patient.id, defaultValue: patient[key] });
         default:
           return null;
       }
@@ -25094,9 +25122,9 @@ Object.defineProperty(exports, "__esModule", {
 
 var _reactRedux = __webpack_require__(34);
 
-var _TreatmentInput = __webpack_require__(233);
+var _PatientTreatment = __webpack_require__(233);
 
-var _TreatmentInput2 = _interopRequireDefault(_TreatmentInput);
+var _PatientTreatment2 = _interopRequireDefault(_PatientTreatment);
 
 var _actions = __webpack_require__(56);
 
@@ -25110,7 +25138,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   };
 };
 
-var TreatmentInputContainer = (0, _reactRedux.connect)(undefined, mapDispatchToProps)(_TreatmentInput2.default);
+var TreatmentInputContainer = (0, _reactRedux.connect)(undefined, mapDispatchToProps)(_PatientTreatment2.default);
 
 exports.default = TreatmentInputContainer;
 
@@ -25189,9 +25217,9 @@ Object.defineProperty(exports, "__esModule", {
 
 var _reactRedux = __webpack_require__(34);
 
-var _StatusDropdown = __webpack_require__(235);
+var _PatientStatus = __webpack_require__(235);
 
-var _StatusDropdown2 = _interopRequireDefault(_StatusDropdown);
+var _PatientStatus2 = _interopRequireDefault(_PatientStatus);
 
 var _actions = __webpack_require__(56);
 
@@ -25205,7 +25233,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   };
 };
 
-var StatusDropdownContainer = (0, _reactRedux.connect)(undefined, mapDispatchToProps)(_StatusDropdown2.default);
+var StatusDropdownContainer = (0, _reactRedux.connect)(undefined, mapDispatchToProps)(_PatientStatus2.default);
 
 exports.default = StatusDropdownContainer;
 
@@ -25293,35 +25321,6 @@ StatusDropdown.propTypes = {
   id: _propTypes2.default.number,
   defaultValue: _propTypes2.default.string
 };
-
-/***/ }),
-/* 236 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _reactRedux = __webpack_require__(34);
-
-var _PatientTable = __webpack_require__(230);
-
-var _PatientTable2 = _interopRequireDefault(_PatientTable);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var mapStateToProps = function mapStateToProps(state) {
-  return {
-    patients: state.patients
-  };
-};
-
-var ShowPatientTable = (0, _reactRedux.connect)(mapStateToProps)(_PatientTable2.default);
-
-exports.default = ShowPatientTable;
 
 /***/ })
 /******/ ]);

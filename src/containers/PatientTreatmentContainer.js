@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import TreatmentInput from '../components/TreatmentInput';
+import PatientTreatment from '../components/PatientTreatment';
 import { changeTreatment } from '../actions';
 
 const mapDispatchToProps = (dispatch) => {
@@ -11,6 +11,6 @@ const mapDispatchToProps = (dispatch) => {
 const TreatmentInputContainer = connect(
   undefined,
   mapDispatchToProps
-)(TreatmentInput);
+)(PatientTreatment);
 
 export default TreatmentInputContainer;
