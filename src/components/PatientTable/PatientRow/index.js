@@ -5,37 +5,26 @@ import PatientStatusContainer from '../../../containers/PatientStatusContainer';
 
 export default class PatientRow extends Component {
 
-  get contentType() {
-    return {
-      firstName: 'value',
-      secondName: 'value',
-      age: 'value',
-      gender: 'value',
-      disease: 'value',
-      treatment: 'input',
-      status: 'dropdown'
-    };
+  get fields() {
+    return ['firstName', 'secondName', 'age', 'gender', 'disease', 'treatment', 'status'];
   }
 
-  createCellContent(key, patient) {
-    switch (this.contentType[key]) {
-      case 'value':
-        return patient[key];
-      case 'input':
-        return <PatientTreatmentContainer id={patient.id} defaultValue={patient[key]} />;
-      case 'dropdown':
-        return <PatientStatusContainer id={patient.id} defaultValue={patient[key]} />;
+  createCellContent(field, patient) {
+    switch (field) {
+      case 'treatment':
+        return <PatientTreatmentContainer id={patient.id} defaultValue={patient[field]} />;
+      case 'status':
+        return <PatientStatusContainer id={patient.id} defaultValue={patient[field]} />;
       default:
-        return null;
+        return patient[field];
     }
   }
 
   render() {
-    const keys = Object.keys(this.contentType);
-    const $rowCells = keys.map(key => {
+    const $rowCells = this.fields.map(field => {
       return (
-        <td key={key}>
-          {this.createCellContent(key, this.props.patient)}
+        <td key={field}>
+          {this.createCellContent(field, this.props.patient)}
         </td>
       );
     });
