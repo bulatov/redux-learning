@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import ShowPatientTable from '../../containers/ShowPatientTable.js';
+import PatientTableContainer from '../../containers/PatientTableContainer.js';
 
 export default class App extends Component {
   render() {
     return (
-      <ShowPatientTable />
+      <PatientTableContainer />
     );
   }
 }
