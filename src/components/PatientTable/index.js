@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import PatientRow from './PatientRow';
+import './style.scss';
 
 export default class PatientTable extends Component {
 
@@ -15,9 +16,9 @@ export default class PatientTable extends Component {
     const $rows = this.props.patients.map(patient => <PatientRow patient={patient} key={patient.id} />);
 
     return (
-      <table>
+      <table className="patient-table">
         <thead>
-          <tr>
+          <tr className="patient-table__header-row">
             {$headers}
           </tr>
         </thead>

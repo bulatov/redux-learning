@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import PatientTreatmentContainer from '../../../containers/PatientTreatmentContainer';
-import PatientStatusContainer from '../../../containers/PatientStatusContainer';
+import PatientCell from '../PatientCell';
+import './styles.scss';
 
 export default class PatientRow extends Component {
 
@@ -9,28 +9,13 @@ export default class PatientRow extends Component {
     return ['firstName', 'secondName', 'age', 'gender', 'disease', 'treatment', 'status'];
   }
 
-  createCellContent(field, patient) {
-    switch (field) {
-      case 'treatment':
-        return <PatientTreatmentContainer id={patient.id} value={patient[field]} />;
-      case 'status':
-        return <PatientStatusContainer id={patient.id} value={patient[field]} />;
-      default:
-        return patient[field];
-    }
-  }
-
   render() {
     const $rowCells = this.fields.map(field => {
-      return (
-        <td key={field}>
-          {this.createCellContent(field, this.props.patient)}
-        </td>
-      );
+      return <PatientCell key={field} field={field} patient={this.props.patient} />;
     });
 
     return (
-      <tr>
+      <tr className="patient-table__patient-row">
         {$rowCells}
       </tr>
     );

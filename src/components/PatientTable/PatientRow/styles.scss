@@ -1,0 +1,9 @@
+.patient-table__patient-row {
+  &:nth-child(odd) {
+    background-color: white;
+  }
+  &:nth-child(even) {
+    background-color: #eee;
+  }
+  border-bottom: solid 1px #999;
+}

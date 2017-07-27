@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './styles.scss';
 
 export default class StatusDropdown extends Component {
 
@@ -9,7 +10,7 @@ export default class StatusDropdown extends Component {
 
   render() {
     return (
-      <select value={this.props.value} onChange={this.handleChange.bind(this)}>
+      <select className="patient-status" value={this.props.value} onChange={this.handleChange.bind(this)}>
         <option value="admit">Admit</option>
         <option value="operation">Operation</option>
         <option value="recovery">Recovery</option>

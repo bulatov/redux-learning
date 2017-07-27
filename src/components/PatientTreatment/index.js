@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './styles.scss';
 
 export default class TreatmentInput extends Component {
 
@@ -9,7 +10,7 @@ export default class TreatmentInput extends Component {
 
   render() {
     return (
-      <input type="text" value={this.props.value} onChange={this.handleChange.bind(this)} />
+      <input className="patient-treatment" type="text" value={this.props.value} onChange={this.handleChange.bind(this)} />
     );
   }
 }

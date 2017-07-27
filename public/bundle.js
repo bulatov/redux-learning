@@ -24852,6 +24852,8 @@ var _PatientTableContainer = __webpack_require__(229);
 
 var _PatientTableContainer2 = _interopRequireDefault(_PatientTableContainer);
 
+__webpack_require__(237);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -24872,7 +24874,11 @@ var App = function (_Component) {
   _createClass(App, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(_PatientTableContainer2.default, null);
+      return _react2.default.createElement(
+        'div',
+        { className: 'app' },
+        _react2.default.createElement(_PatientTableContainer2.default, null)
+      );
     }
   }]);
 
@@ -24935,6 +24941,8 @@ var _PatientRow = __webpack_require__(231);
 
 var _PatientRow2 = _interopRequireDefault(_PatientRow);
 
+__webpack_require__(236);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -24968,13 +24976,13 @@ var PatientTable = function (_Component) {
 
       return _react2.default.createElement(
         'table',
-        null,
+        { className: 'patient-table' },
         _react2.default.createElement(
           'thead',
           null,
           _react2.default.createElement(
             'tr',
-            null,
+            { className: 'patient-table__header-row' },
             $headers
           )
         ),
@@ -25023,13 +25031,11 @@ var _propTypes = __webpack_require__(21);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _PatientTreatmentContainer = __webpack_require__(232);
+var _PatientCell = __webpack_require__(245);
 
-var _PatientTreatmentContainer2 = _interopRequireDefault(_PatientTreatmentContainer);
+var _PatientCell2 = _interopRequireDefault(_PatientCell);
 
-var _PatientStatusContainer = __webpack_require__(234);
-
-var _PatientStatusContainer2 = _interopRequireDefault(_PatientStatusContainer);
+__webpack_require__(243);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25049,33 +25055,17 @@ var PatientRow = function (_Component) {
   }
 
   _createClass(PatientRow, [{
-    key: 'createCellContent',
-    value: function createCellContent(field, patient) {
-      switch (field) {
-        case 'treatment':
-          return _react2.default.createElement(_PatientTreatmentContainer2.default, { id: patient.id, value: patient[field] });
-        case 'status':
-          return _react2.default.createElement(_PatientStatusContainer2.default, { id: patient.id, value: patient[field] });
-        default:
-          return patient[field];
-      }
-    }
-  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
 
       var $rowCells = this.fields.map(function (field) {
-        return _react2.default.createElement(
-          'td',
-          { key: field },
-          _this2.createCellContent(field, _this2.props.patient)
-        );
+        return _react2.default.createElement(_PatientCell2.default, { key: field, field: field, patient: _this2.props.patient });
       });
 
       return _react2.default.createElement(
         'tr',
-        null,
+        { className: 'patient-table__patient-row' },
         $rowCells
       );
     }
@@ -25158,6 +25148,8 @@ var _propTypes = __webpack_require__(21);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+__webpack_require__(248);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25183,7 +25175,7 @@ var TreatmentInput = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('input', { type: 'text', value: this.props.value, onChange: this.handleChange.bind(this) });
+      return _react2.default.createElement('input', { className: 'patient-treatment', type: 'text', value: this.props.value, onChange: this.handleChange.bind(this) });
     }
   }]);
 
@@ -25253,6 +25245,8 @@ var _propTypes = __webpack_require__(21);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+__webpack_require__(250);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25280,7 +25274,7 @@ var StatusDropdown = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'select',
-        { value: this.props.value, onChange: this.handleChange.bind(this) },
+        { className: 'patient-status', value: this.props.value, onChange: this.handleChange.bind(this) },
         _react2.default.createElement(
           'option',
           { value: 'admit' },
@@ -25316,6 +25310,132 @@ StatusDropdown.propTypes = {
   id: _propTypes2.default.number,
   value: _propTypes2.default.string
 };
+
+/***/ }),
+/* 236 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 237 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 238 */,
+/* 239 */,
+/* 240 */,
+/* 241 */,
+/* 242 */,
+/* 243 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 244 */,
+/* 245 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(13);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(21);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _PatientTreatmentContainer = __webpack_require__(232);
+
+var _PatientTreatmentContainer2 = _interopRequireDefault(_PatientTreatmentContainer);
+
+var _PatientStatusContainer = __webpack_require__(234);
+
+var _PatientStatusContainer2 = _interopRequireDefault(_PatientStatusContainer);
+
+__webpack_require__(246);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var PatientCell = function (_Component) {
+  _inherits(PatientCell, _Component);
+
+  function PatientCell() {
+    _classCallCheck(this, PatientCell);
+
+    return _possibleConstructorReturn(this, (PatientCell.__proto__ || Object.getPrototypeOf(PatientCell)).apply(this, arguments));
+  }
+
+  _createClass(PatientCell, [{
+    key: 'createCellContent',
+    value: function createCellContent(field, patient) {
+      switch (field) {
+        case 'treatment':
+          return _react2.default.createElement(_PatientTreatmentContainer2.default, { id: patient.id, value: patient[field] });
+        case 'status':
+          return _react2.default.createElement(_PatientStatusContainer2.default, { id: patient.id, value: patient[field] });
+        default:
+          return patient[field];
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'td',
+        { className: 'patient-table__patient-cell' },
+        this.createCellContent(this.props.field, this.props.patient)
+      );
+    }
+  }]);
+
+  return PatientCell;
+}(_react.Component);
+
+exports.default = PatientCell;
+
+
+PatientCell.propTypes = {
+  patient: _propTypes2.default.object.isRequired,
+  field: _propTypes2.default.string.isRequired
+};
+
+/***/ }),
+/* 246 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 247 */,
+/* 248 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 249 */,
+/* 250 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

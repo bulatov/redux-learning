@@ -1,0 +1,54 @@
+@import url(https://fonts.googleapis.com/css?family=Khula:300);.app {
+  font-size: 16px;
+  font-family: 'Khula', sans-serif;
+}.patient-table {
+  width: 70%;
+  margin: auto;
+  table-layout: fixed;
+  border-collapse: collapse;
+}.patient-table__patient-row {
+  border-bottom: solid 1px #999;
+}
+
+.patient-table__patient-row:nth-child(odd) {
+  background-color: white;
+}
+
+.patient-table__patient-row:nth-child(even) {
+  background-color: #eee;
+}.patient-table__patient-cell {
+  padding: 10px;
+  text-align: center;
+}.patient-status {
+  display: block;
+  width: 100%;
+  padding: 5px 4px 5px 4px;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.55), 0px 1px 1px rgba(255, 255, 255, 0.5);
+  border: 1px solid #666;
+  opacity: 0.7;
+  outline: none;
+}
+
+.patient-status:focus {
+  opacity: 1;
+  color: #08c;
+  border: 1px solid #08c;
+  box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.25), inset 0px 3px 6px rgba(0, 0, 0, 0.25);
+}.patient-treatment {
+  display: block;
+  width: 100%;
+  padding: 5px 4px 5px 4px;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.55), 0px 1px 1px rgba(255, 255, 255, 0.5);
+  border: 1px solid #666;
+  opacity: 0.7;
+  outline: none;
+}
+
+.patient-treatment:focus {
+  opacity: 1;
+  color: #08c;
+  border: 1px solid #08c;
+  box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.25), inset 0px 3px 6px rgba(0, 0, 0, 0.25);
+}
