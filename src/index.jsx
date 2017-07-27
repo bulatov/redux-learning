@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import hospitalApp from './reducers';
 import App from './components/App';
 
-const store = createStore(hospitalApp, {
+const persistedState = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')) : {
   patients: [
     {id: 0, firstName: 'Lewis', secondName: 'Farrell', age: 23, gender: 'Male', disease: 'Hemophilia', treatment: 'a', status: 'admit'},
     {id: 1, firstName: 'Freya', secondName: 'John', age: 40, gender: 'Female', disease: 'Bernard-Soulier Disease', treatment: 'b', status: 'recovery'},
@@ -18,6 +18,12 @@ const store = createStore(hospitalApp, {
     {id: 8, firstName: 'Aaliyah', secondName: 'Sharpe', age: 55, gender: 'Female', disease: 'Infectious Mononucleosis', treatment: 'i', status: 'admit'},
     {id: 9, firstName: 'Jayden', secondName: 'Lloyd', age: 46, gender: 'Male', disease: 'Joint Injection ', treatment: 'j', status: 'operation'}
   ]
+};
+
+const store = createStore(hospitalApp, persistedState);
+
+store.subscribe(() => {
+  localStorage.setItem('reduxState', JSON.stringify(store.getState()));
 });
 
 render(
